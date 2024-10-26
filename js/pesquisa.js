@@ -144,17 +144,17 @@ function iniciarRonda() {
     $("#barraProgreso").css("width", `${progresoInicial}%`);
     $("#barraProgreso").attr("aria-valuenow", progresoInicial);
 
-    // Cambiar color según el progreso
-    if (progresoInicial > 50) {
-      $("#barraProgreso").removeClass("bg-warning", "bg-danger");
-      $("#barraProgreso").addClass("bg-success");
-    } else if (progresoInicial > 25) {
-      $("#barraProgreso").removeClass("bg-success", "bg-danger");
-      $("#barraProgreso").addClass("bg-warning");
-    } else {
-      $("#barraProgreso").removeClass("bg-success", "bg-warning");
-      $("#barraProgreso").addClass("bg-danger");
-    }
+    // // Cambiar color según el progreso
+    // if (progresoInicial > 50) {
+    //   $("#barraProgreso").removeClass("bg-warning", "bg-danger");
+    //   $("#barraProgreso").addClass("bg-success");
+    // } else if (progresoInicial > 25) {
+    //   $("#barraProgreso").removeClass("bg-success", "bg-danger");
+    //   $("#barraProgreso").addClass("bg-warning");
+    // } else {
+    //   $("#barraProgreso").removeClass("bg-success", "bg-warning");
+    //   $("#barraProgreso").addClass("bg-danger");
+    // }
 
     if (tiempoRestante <= 0) {
       clearInterval(timer);
@@ -167,6 +167,7 @@ function iniciarRonda() {
 function verificarRespuestas() {
   $("#escritura").show();
   $("#contador").hide();
+  $("#barraProgreso").css("width", '100%');
   let opcionesHTML = ``;
   let btnClass = [
     ["primary"],

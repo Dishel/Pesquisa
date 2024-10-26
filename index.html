@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juego de Escrituras</title>
+  <title>Pesquisas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet" />
@@ -12,10 +12,10 @@
 
 <body>
   <div class="container">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="https://dishel.github.io/">
-          dishel.github.io
+          Github.io
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,38 +24,107 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="https://dishel.github.io/Pesquisa/">Pesquisa</a>
+              <a class="nav-link active" aria-current="page" href="https://dishel.github.io/Pesquisa/">Pesquisa</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" aria-current="page" href="https://dishel.github.io//Pesquisa/">SICA</a>
             </li>
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
-    <main class="mt-5">
-      <div class="p-5 bg-body-tertiary">
-        <div class="container py-5 text-center">
-          <h1 class="text-body-emphasis">Pesquisa</h1>
+    <main class="my-5">
+      <div class="text-center my-5">
+        <h1 class="text-body-emphasis">Pesquisa</h1>
+        <button class="btn btn-outline-info btn-sm active" onclick="instrucciones()"
+          data-bs-toggle="button">Instrucciones</button>
+        <button class="btn btn-primary btn-sm" onclick="configurar()" id="jugar" style="display: none;">Jugar</button>
+      </div>
+      <div id="instrucciones">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="alert alert-warning">
+              <p><i class="fa fa-warning" aria-hidden="true"></i> Esta es <strong>unicamente una herramienta</strong>
+                para jugar Pesquisas, y por el momento <strong>solo se pueden jugar con las escrituras de dominio del
+                  Libro de
+                  Mormón</strong></p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="alert alert-info">
+              <p><i class="fa fa-info-circle" aria-hidden="true"></i> La <strong>Pesquisa</strong> es un juego que
+                consiste en encontrar una escritura
+                dentro de los libros canónicos durante un tiempo determinado.</p>
+            </div>
+          </div>
         </div>
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-question-circle" aria-hidden="true"></i> ¿Como usar la herramienta?
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Instrucciones</h5>
+            <p>Hay que definir primeramente la configuración del juego:</p>
+            <ul class="unstyle-list">
+              <li>Nombre de equipos o jugadores <small>(mínimo 2 jugadores)</small>.</li>
+              <li>Cantidad de rondas <small>(mínimo 3 rondas)</small>.</li>
+              <li>Tempo para pesquisa <small>(mínimo 10 segundos)</small>.</li>
+            </ul>
+            <p>Una vez definida la configuración, iniciamos el juego y empezaremos cada ronda</p>
+            <h5 class="card-title">¿Como jugar?</h5>
+            <ul>
+              <li>Cada jugador debe tener a la mano su libro (para esta herramienta solo existe configurado el Libro de
+                Mormon).</li>
+              <li>Al comenzar la ronda, se dará una referencia de una escritura de dominio.</li>
+              <li>Todos los jugadores deberan alejar sus manos de su propio libro.</li>
+              <li>Al empezar el conteo regresivo, los jugadores deberán encontrar la escritura en su libro.</li>
+              <li>Al encontrar la esrcitura, deberan <strong>apuntar con su dedo</strong>.</li>
+              <li><strong>Otra persona deberá verificar</strong> que haya encontrado la escritura correcta:
+                <ul>
+                  <li>Si no es la correcta, puede seguir buscando hasta <strong>antes de que el contador llegue a
+                      0</strong>.</li>
+                  <li>Si es la escritura correcta, <strong>el jugador deja su mano levantada</strong> hasta que termine
+                    el conteo.</li>
+                </ul>
+              </li>
+              <li>Al finalizar el contador, se asignan los puntos a cada jugador que encontró la escritura correcta.
+              </li>
+              <li>Y se empieza la siguiente ronda.</li>
+              <li>Al finalizar todas las rondas:
+                <ul>
+                  <li><strong>Gana el jugador que con más puntos.</strong></li>
+                  <li>Si existen jugadores con la misma cantidad de puntos, se define el ganador con una ronda de
+                    empate. (<ins>Seguira habiendo ronda de desempate hasta tener diferencia de puntos</ins>)</li>
+                </ul>
+              </li>
+              <li>Se termina el juego y se reinicia</li>
+            </ul>
+            <button class="btn btn-primary" onclick="configurar()">Jugar</button>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 bg-body-tertiary" style="display: none;">
         <div id="configuracion">
           <p class="mx-auto lead text-center">
-            Define a los <strong>jugadores o equipos</strong>, <strong>cantidad de rondas</strong> y <strong>timepo de
+            Define a los <strong>jugadores o equipos</strong>, <strong>cantidad de rondas</strong> y <strong>tiempo de
               busqueda</strong>
           </p>
           <div class="mb-3">
             <label for="jugadoresInput">Jugadores:</label>
             <input type="text" id="jugadoresInput" name="jugadoresInput" class="form-control"
-              value="Jugador 1, Jugador 2, Jugador 3" required>
-            <div class="d-none" id="feedback-jugadores"></div>
+              placeholder="Jugador 1, Jugador 2, Jugador 3" required>
+            <div id="feedback-jugadores"></div>
           </div>
           <div class="row">
             <div class="mb-3 col-sm-6">
               <label for="rondasInput"># de rondas:</label>
-              <input type="number" id="rondasInput" name="rondasInput" min="1" value="1" class="form-control" required>
+              <input type="number" id="rondasInput" name="rondasInput" min="3" value="3" class="form-control" required>
             </div>
             <div class="mb-3 col-sm-6">
               <label for="tiempoInput">Tiempo por ronda (segundos):</label>
-              <input type="number" id="tiempoInput" name="tiempoInput" min="1" value="1" class="form-control" required>
+              <input type="number" id="tiempoInput" name="tiempoInput" min="10" value="10" class="form-control"
+                required>
             </div>
           </div>
           <div class="d-grid col-sm-6 mx-auto">
@@ -67,7 +136,8 @@
           <div id="referencia" style="display: none;">
             <h1>Referencia: <strong class="text-success" id="escritura" style="display: none;"></strong><button
                 class="btn btn-info btn-sm" style="display:none" id="botonRespuesta"
-                onclick="mostrarEscritura()">Mostrar respuesta</button></h1>
+                onclick="mostrarEscritura()">Mostrar
+                respuesta</button></h1>
             <h1 id="frase"></h1>
           </div>
           <div id="puntajes" class="text-center m-3 row row-cols-md-3" style="display: none;"></div>

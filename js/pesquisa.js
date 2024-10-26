@@ -1,3 +1,4 @@
+$();
 let jugadores = [];
 let puntajes = {};
 let rondas = 0;
@@ -18,9 +19,20 @@ async function cargarReferencias() {
   }
 }
 
+function configurar() {
+  $("#configuracion").parent("div").show();
+  $("#instrucciones").hide();
+  $("#jugar").hide();
+}
+
+function instrucciones() {
+  $("#jugar").toggle($("#instrucciones").is(":visible"));
+  $("#instrucciones").slideToggle();
+  $("#configuracion").parent("div").hide();
+}
+
 // Iniciar el juego con la configuración ingresada
 function iniciarJuego() {
-  $("#configuracion").hide();
   const jugadoresInput = document.getElementById("jugadoresInput").value.trim();
   jugadores = jugadoresInput
     .split(/\s*,\s*/)
@@ -35,17 +47,18 @@ function iniciarJuego() {
     $("#feedback-jugadores").html("Debes ingresar al menos dos jugadores.");
     $("#feedback-jugadores").show();
     return;
+  } else {
+    $("#configuracion").hide();
+    $("#jugadoresInput").removeClass("is-invalid");
+    $("#feedback-jugadores").removeClass("invalid-feedback");
+    $("#feedback-jugadores").hide();
+    jugadores.forEach((jugador) => (puntajes[jugador.trim()] = 0));
+
+    cargarReferencias().then(() => {
+      siguienteRonda();
+    });
+    $("#juego").show();
   }
-  $("#jugadoresInput").removeClass("is-invalid");
-  $("#feedback-jugadores").removeClass("invalid-feedback");
-  $("#feedback-jugadores").hide();
-
-  jugadores.forEach((jugador) => (puntajes[jugador.trim()] = 0));
-
-  cargarReferencias().then(() => {
-    siguienteRonda();
-  });
-  $("#juego").show();
 }
 
 // Mostrar la siguiente ronda
@@ -244,7 +257,10 @@ function mostrarGanador() {
       .attr("class")
       .split(" ")
       .find((cls) => cls.startsWith("border-"));
-    $(`#${jugadoresEmpatados[0]}`).children(".card").removeClass(borderClass).addClass(`text-bg-${borderClass.replace('border-', '')}`);
+    $(`#${jugadoresEmpatados[0]}`)
+      .children(".card")
+      .removeClass(borderClass)
+      .addClass(`text-bg-${borderClass.replace("border-", "")}`);
     $(".btn-group").hide(300);
     $("#botonReiniciar").show();
     $("#ountaje").show();

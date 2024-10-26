@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Escrituras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../">
+          Juegos SUD
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../Pesquisa/">Pesquisa</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="mt-5">
+      <div class="p-5 bg-body-tertiary">
+        <div class="container py-5 text-center">
+          <h1 class="text-body-emphasis">Pesquisa</h1>
+        </div>
+        <div id="configuracion">
+          <p class="mx-auto lead text-center">
+            Define a los <strong>jugadores o equipos</strong>, <strong>cantidad de rondas</strong> y <strong>timepo de
+              busqueda</strong>
+          </p>
+          <div class="mb-3">
+            <label for="jugadoresInput">Jugadores:</label>
+            <input type="text" id="jugadoresInput" name="jugadoresInput" class="form-control"
+              value="Jugador 1, Jugador 2, Jugador 3" required>
+            <div class="d-none" id="feedback-jugadores"></div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-sm-6">
+              <label for="rondasInput"># de rondas:</label>
+              <input type="number" id="rondasInput" name="rondasInput" min="1" value="1" class="form-control" required>
+            </div>
+            <div class="mb-3 col-sm-6">
+              <label for="tiempoInput">Tiempo por ronda (segundos):</label>
+              <input type="number" id="tiempoInput" name="tiempoInput" min="1" value="1" class="form-control" required>
+            </div>
+          </div>
+          <div class="d-grid col-sm-6 mx-auto">
+            <button class="btn btn-primary" onclick="iniciarJuego()">Iniciar Juego</button>
+          </div>
+        </div>
+        <div id="juego" class="text-center" style="display: none;">
+          <h2 id="ronda"></h2>
+          <div id="referencia" style="display: none;">
+            <h1>Referencia: <strong class="text-success" id="escritura" style="display: none;"></strong><button
+                class="btn btn-info btn-sm" style="display:none" id="botonRespuesta"
+                onclick="mostrarEscritura()">Mostrar respuesta</button></h1>
+            <h1 id="frase"></h1>
+          </div>
+          <div id="puntajes" class="text-center m-3 row row-cols-md-3" style="display: none;"></div>
+          <div class="d-grid col-sm-6 mx-auto gap-2">
+            <button id="botonSiguienteRonda" class="btn btn-success" style="display: none;"
+              onclick="siguienteRonda()">Siguiente
+              Ronda</button>
+            <button id="botonReiniciar" class="btn btn-danger" style="display: none;"
+              onclick="reiniciarJuego()">Reiniciar
+              Juego</button>
+          </div>
+          <div id="contador" style="display: none;">
+            <button id="btnTiempo" class="btn btn-success" onclick="iniciarRonda()">Corre tiempo</button>
+            <p class="lead">Tiempo restante:</p>
+            <h1></h1>
+            <div class="progress mb-3" id="progressbar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100" style="height: 20px">
+              <div id="barraProgreso" class="progress-bar bg-success" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/pesquisa.js"></script>
+</body>
+
+</html>

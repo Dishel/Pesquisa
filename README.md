@@ -1,4 +1,4 @@
-[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Dishel/Pesquisa/blob/master/README-ES.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Dishel/Pesquisa/blob/main/README-ES.md)
 
 # Inquest
 

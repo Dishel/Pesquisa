@@ -6,7 +6,7 @@
 
 ## Información
 
-> Esta es únicamente una herramienta para jugar Pesquisas
+> Esta es **únicamente una herramienta** para jugar Pesquisas
 
 ## Configuración
 

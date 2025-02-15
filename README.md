@@ -2,7 +2,7 @@
 
 # Inquest
 
-> This is a tool for a Church of Jesuschrist of Latter Days Saints game called Inquest, where participants must search for the scripture, in the canonical books, according to the reference shown.
+> This is a tool for a Church of Jesus Christ of Latter Days Saints game called Inquest, where participants must search for the scripture, in the canonical books, according to the reference shown.
 
 ## Information
 

@@ -32,7 +32,7 @@ Para configurar las escrituras se debe actualizar el archivo <code>referencias.j
 ]
 ```
 
-Si asi se requiere, se puede modificar el archivo <code>pesquisa.js</code>
+Toda la lígica del juego está en el archivo <code>pesquisa.js</code>
 
 ```
 ├─ Pesquisa
@@ -52,7 +52,7 @@ Una vez definida la configuración, iniciamos el juego y empezaremos cada ronda
 
 ### ¿Como jugar?
 
-- **Cada jugador debe tener a la mano su libro** (para esta herramienta solo existe configurado el Libro de Mormon).
+- **Cada jugador debe tener a la mano su libro** (Consulte la _Configuración_).
 - Al comenzar la ronda, **se dará una referencia** de una escritura de dominio.
 - **Todos los jugadores** deberan alejar sus manos de su propio libro.
 - Al empezar el conteo regresivo, los jugadores deberán **encontrar la escritura** en su libro.
